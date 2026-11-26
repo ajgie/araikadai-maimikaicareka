@@ -1,0 +1,953 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="แฟ้มสะสมผลงานนักเรียน เพื่อประกอบการสมัครเข้าศึกษาต่อระดับมหาวิทยาลัย">
+<title>My E-Portfolio | Student Portfolio</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --pink: #e991b5;
+    --pink-dark: #d66e9b;
+    --pink-light: #fff0f6;
+    --pink-soft: #fce2ed;
+    --white: #ffffff;
+    --text: #39313a;
+    --gray: #827780;
+    --bg: #fffafd;
+    --shadow: 0 8px 30px rgba(218,126,164,.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1120px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 15px rgba(0,0,0,.04);
+}
+
+nav {
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--pink-dark);
+}
+
+.logo span {
+    color: var(--text);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--pink-dark);
+}
+
+.github-btn {
+    background: var(--text);
+    color: white !important;
+    padding: 9px 20px;
+    border-radius: 30px;
+}
+
+.github-btn:hover {
+    background: var(--pink-dark);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* HOME */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(120deg,#fff0f6,#fff,#ffeaf2);
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 75px 0;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.tag {
+    display: inline-block;
+    background: white;
+    color: var(--pink-dark);
+    padding: 6px 17px;
+    border-radius: 30px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.hero h1 {
+    font-size: clamp(34px,5vw,53px);
+    line-height: 1.4;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--pink-dark);
+}
+
+.hero p {
+    max-width: 520px;
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.main-btn,
+.outline-btn {
+    display: inline-block;
+    padding: 11px 25px;
+    border-radius: 30px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.main-btn {
+    background: var(--pink);
+    color: white;
+}
+
+.main-btn:hover {
+    background: var(--pink-dark);
+    transform: translateY(-3px);
+}
+
+.outline-btn {
+    border: 1px solid var(--pink);
+    color: var(--pink-dark);
+    margin-left: 8px;
+}
+
+.hero-image {
+    width: 330px;
+    height: 370px;
+    flex-shrink: 0;
+    background: var(--pink-soft);
+    border-radius: 48% 48% 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 105px;
+    box-shadow: 13px 13px 0 #f8d6e5;
+}
+
+/* GENERAL SECTION */
+
+section {
+    padding: 85px 0;
+    scroll-margin-top: 75px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading small {
+    color: var(--pink-dark);
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.section-heading h2 {
+    font-size: 29px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.section-heading p {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* ABOUT */
+
+.about-content {
+    display: grid;
+    grid-template-columns: .85fr 1.3fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-picture {
+    height: 370px;
+    background: var(--pink-light);
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 105px;
+    position: relative;
+}
+
+.about-picture::after {
+    content: "MY PROFILE ♡";
+    position: absolute;
+    bottom: 20px;
+    background: white;
+    color: var(--pink-dark);
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.about-text h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.about-text h3 span {
+    color: var(--pink-dark);
+}
+
+.about-text p {
+    color: var(--gray);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.info-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 23px;
+}
+
+.info-item {
+    background: white;
+    padding: 12px 15px;
+    border-radius: 13px;
+    box-shadow: var(--shadow);
+    font-size: 12px;
+}
+
+.info-item strong {
+    display: block;
+    color: var(--pink-dark);
+    font-size: 12px;
+}
+
+/* SKILLS */
+
+.skills {
+    margin-top: 25px;
+}
+
+.skills h4 {
+    margin-bottom: 10px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.skill-tags span {
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    padding: 5px 13px;
+    border-radius: 25px;
+    font-size: 11px;
+}
+
+/* PORTFOLIO */
+
+#portfolio {
+    background: #fff3f8;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 23px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 19px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+}
+
+.project-image {
+    height: 180px;
+    background: var(--pink-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+}
+
+.project-card:nth-child(2) .project-image {
+    background: #f0edff;
+}
+
+.project-card:nth-child(3) .project-image {
+    background: #eaf5ff;
+}
+
+.project-info {
+    padding: 21px;
+}
+
+.project-info h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: var(--gray);
+    font-size: 12px;
+    min-height: 65px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--pink-dark);
+    font-size: 12px;
+    margin-top: 14px;
+    font-weight: 500;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* ACTIVITIES */
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 23px;
+}
+
+.activity-card {
+    padding: 26px;
+    background: white;
+    border: 1px solid #f5e3eb;
+    border-radius: 18px;
+    transition: .3s;
+}
+
+.activity-card:hover {
+    border-color: var(--pink);
+    box-shadow: var(--shadow);
+    transform: translateY(-4px);
+}
+
+.activity-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    background: var(--pink-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    margin-bottom: 17px;
+}
+
+.activity-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.activity-card p {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.activity-date {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #332d33;
+    color: white;
+    padding: 55px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.footer-about {
+    max-width: 400px;
+}
+
+footer h3 {
+    color: #f2a4c3;
+    margin-bottom: 13px;
+}
+
+footer p,
+footer a {
+    color: #d7cbd3;
+    font-size: 12px;
+}
+
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    margin-bottom: 10px;
+}
+
+.contact-list a:hover {
+    color: #f2a4c3;
+}
+
+.copyright {
+    border-top: 1px solid #51464f;
+    padding-top: 20px;
+    text-align: center;
+    color: #bcaeb8;
+    font-size: 11px;
+}
+
+/* ANIMATION */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+    .hero-image {
+        width: 260px;
+        height: 300px;
+    }
+
+    .portfolio-grid,
+    .activity-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px) {
+    nav {
+        height: 65px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 12px 0;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        width: 100%;
+        padding: 11px;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 55px 0;
+    }
+
+    .hero-image {
+        width: 210px;
+        height: 235px;
+        font-size: 75px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-picture {
+        height: 260px;
+    }
+
+    .portfolio-grid,
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+<nav class="container">
+    <a href="#home" class="logo">MY<span> PORTFOLIO.</span></a>
+
+    <button class="menu-toggle" id="menuToggle"
+        aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">หน้าแรก</a></li>
+        <li><a href="#about">แนะนำตัว</a></li>
+        <li><a href="#portfolio">ผลงาน</a></li>
+        <li><a href="#activities">กิจกรรม</a></li>
+        <li>
+            <a href="https://github.com/yourusername"
+               target="_blank" rel="noopener noreferrer"
+               class="github-btn">GitHub ↗</a>
+        </li>
+    </ul>
+</nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+<div class="container hero-content">
+
+    <div class="hero-text">
+        <span class="tag">WELCOME TO MY PORTFOLIO ♡</span>
+
+        <h1>
+            Hello, I'm<br>
+            <span>Student Portfolio</span>
+        </h1>
+
+        <p>
+            ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานของฉัน
+            เว็บไซต์ที่รวบรวมประวัติส่วนตัว ความสามารถ
+            ผลงาน และกิจกรรมต่าง ๆ เพื่อประกอบการสมัคร
+            เข้าศึกษาต่อในระดับมหาวิทยาลัย
+        </p>
+
+        <a href="#about" class="main-btn">รู้จักฉันเพิ่มเติม →</a>
+        <a href="#portfolio" class="outline-btn">ดูผลงาน</a>
+    </div>
+
+    <div class="hero-image">🎀</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+
+    <div class="section-heading">
+        <small>ABOUT ME</small>
+        <h2>แนะนำตัว</h2>
+        <p>มาทำความรู้จักกับฉันกันให้มากขึ้น</p>
+    </div>
+
+    <div class="about-content">
+
+        <div class="about-picture">👩🏻‍🎓</div>
+
+        <div class="about-text">
+            <h3>สวัสดีค่ะ ฉันชื่อ <span>ชื่อของคุณ</span></h3>
+
+            <p>
+                ดิฉันเป็นนักเรียนระดับชั้นมัธยมศึกษาตอนปลาย
+                ที่มีความสนใจในการเรียนรู้และพัฒนาตนเอง
+                มีความตั้งใจที่จะศึกษาต่อในระดับมหาวิทยาลัย
+                เพื่อพัฒนาความรู้ ความสามารถ และประสบการณ์
+                สำหรับการประกอบอาชีพในอนาคต
+            </p>
+
+            <p>
+                Portfolio เล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติ
+                การศึกษา ความสามารถ ผลงาน และกิจกรรมต่าง ๆ
+                ที่สะท้อนถึงความตั้งใจและพัฒนาการของดิฉัน
+            </p>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <strong>ชื่อ - นามสกุล</strong>
+                    นางสาว ชื่อ นามสกุล
+                </div>
+
+                <div class="info-item">
+                    <strong>ชื่อเล่น</strong>
+                    ชื่อเล่น
+                </div>
+
+                <div class="info-item">
+                    <strong>สถานศึกษา</strong>
+                    โรงเรียนตัวอย่าง
+                </div>
+
+                <div class="info-item">
+                    <strong>ระดับการศึกษา</strong>
+                    มัธยมศึกษาตอนปลาย
+                </div>
+
+                <div class="info-item">
+                    <strong>คณะที่สนใจ</strong>
+                    คณะที่ต้องการสมัคร
+                </div>
+
+                <div class="info-item">
+                    <strong>สาขาวิชา</strong>
+                    สาขาที่ต้องการศึกษา
+                </div>
+            </div>
+
+            <div class="skills">
+                <h4>ความสามารถและทักษะ</h4>
+                <div class="skill-tags">
+                    <span>Communication</span>
+                    <span>Teamwork</span>
+                    <span>Creativity</span>
+                    <span>Problem Solving</span>
+                    <span>Leadership</span>
+                    <span>Computer Skills</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+<div class="container">
+
+    <div class="section-heading">
+        <small>MY PORTFOLIO</small>
+        <h2>ผลงานของฉัน</h2>
+        <p>รวบรวมผลงานที่แสดงถึงความสามารถและความตั้งใจ</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+        <div class="project-card fade-in">
+            <div class="project-image">📚</div>
+            <div class="project-info">
+                <h3>ผลงานทางวิชาการ</h3>
+                <p>
+                    รวบรวมผลงานจากการเรียนรู้
+                    การทำรายงาน และโครงงาน
+                    ที่แสดงถึงความรู้ความสามารถ
+                </p>
+                <a href="#" class="project-link">ดูรายละเอียด ↗</a>
+            </div>
+        </div>
+
+        <div class="project-card fade-in">
+            <div class="project-image">🏆</div>
+            <div class="project-info">
+                <h3>เกียรติบัตรและรางวัล</h3>
+                <p>
+                    ผลงานจากการเข้าร่วมการแข่งขัน
+                    การอบรม และกิจกรรมพัฒนาความสามารถ
+                </p>
+                <a href="#" class="project-link">ดูรายละเอียด ↗</a>
+            </div>
+        </div>
+
+        <div class="project-card fade-in">
+            <div class="project-image">🎨</div>
+            <div class="project-info">
+                <h3>ผลงานสร้างสรรค์</h3>
+                <p>
+                    ผลงานที่เกิดจากความคิดสร้างสรรค์
+                    และการประยุกต์ใช้ทักษะส่วนตัว
+                </p>
+                <a href="#" class="project-link">ดูรายละเอียด ↗</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+<div class="container">
+
+    <div class="section-heading">
+        <small>MY ACTIVITIES</small>
+        <h2>กิจกรรมและประสบการณ์</h2>
+        <p>ประสบการณ์ที่ช่วยพัฒนาทักษะและการเรียนรู้</p>
+    </div>
+
+    <div class="activity-grid">
+
+        <div class="activity-card fade-in">
+            <div class="activity-icon">🎓</div>
+            <h3>กิจกรรมทางวิชาการ</h3>
+            <p>
+                เข้าร่วมกิจกรรมและโครงการทางวิชาการ
+                เพื่อเพิ่มพูนความรู้และพัฒนาศักยภาพ
+            </p>
+            <span class="activity-date">ปีการศึกษา 2568</span>
+        </div>
+
+        <div class="activity-card fade-in">
+            <div class="activity-icon">🤝</div>
+            <h3>กิจกรรมจิตอาสา</h3>
+            <p>
+                มีส่วนร่วมในการทำกิจกรรมเพื่อสังคม
+                ฝึกความรับผิดชอบและการทำงานร่วมกับผู้อื่น
+            </p>
+            <span class="activity-date">ปีการศึกษา 2568</span>
+        </div>
+
+        <div class="activity-card fade-in">
+            <div class="activity-icon">🌷</div>
+            <h3>กิจกรรมพัฒนาตนเอง</h3>
+            <p>
+                เข้าร่วมการอบรมและกิจกรรมต่าง ๆ
+                เพื่อค้นหาความถนัดและพัฒนาทักษะใหม่
+            </p>
+            <span class="activity-date">ปีการศึกษา 2569</span>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+            <h3>MY PORTFOLIO ♡</h3>
+            <p>
+                ขอบคุณที่เข้ามาเยี่ยมชมแฟ้มสะสมผลงานของฉัน
+                หวังว่าเว็บไซต์นี้จะช่วยให้ทุกท่าน
+                ได้รู้จักตัวตนและความสามารถของฉันมากยิ่งขึ้น
+            </p>
+        </div>
+
+        <div>
+            <h3>CONTACT</h3>
+            <ul class="contact-list">
+                <li>📧 Email: example@email.com</li>
+                <li>
+                    💻 GitHub:
+                    <a href="https://github.com/yourusername"
+                       target="_blank" rel="noopener noreferrer">
+                        github.com/yourusername
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © <span id="year"></span> My E-Portfolio. All Rights Reserved.
+    </div>
+
+</div>
+</footer>
+
+<script>
+// Mobile menu
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+    const opened = navLinks.classList.toggle('show');
+    menuToggle.textContent = opened ? '✕' : '☰';
+    menuToggle.setAttribute('aria-expanded', opened);
+});
+
+// Close menu after clicking
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        menuToggle.textContent = '☰';
+        menuToggle.setAttribute('aria-expanded', 'false');
+    });
+});
+
+// Automatic year
+document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+// Active navigation
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) {
+            current = section.id;
+        }
+    });
+
+    links.forEach(link => {
+        link.classList.toggle(
+            'active',
+            link.getAttribute('href') === '#' + current
+        );
+    });
+});
+
+// Scroll reveal animation
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(item => {
+    observer.observe(item);
+});
+</script>
+
+</body>
+</html>
